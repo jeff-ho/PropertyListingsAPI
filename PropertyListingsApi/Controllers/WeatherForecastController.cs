@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PropertyListingsApi.Models;
 
 namespace PropertyListingsApi.Controllers
 {

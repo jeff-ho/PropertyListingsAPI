@@ -1,4 +1,4 @@
-namespace PropertyListingsApi
+namespace PropertyListingsApi.Models
 {
     public class WeatherForecast
     {
