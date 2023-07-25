@@ -11,7 +11,7 @@ namespace PropertyListingsApi.Controllers
     public class PropertyListingsController : ControllerBase
     {
 
-        private readonly ListingService _listingService;    
+        private readonly IListingService _listingService;    
         public PropertyListingsController(IListingService listingService)
         {
             _listingService = listingService;
@@ -21,7 +21,7 @@ namespace PropertyListingsApi.Controllers
 
         public async Task<ActionResult<List<Listing>>> GetAllListings()
         {
-            var result = _listingService.GetAllListings();
+            var result = await _listingService.GetAllListings();
 
             return Ok(result);
         }
@@ -31,7 +31,9 @@ namespace PropertyListingsApi.Controllers
 
         public async Task<ActionResult<Listing>> GetSingleListing(int id)
         {
-            var result = _listingService.GetSingleListing(id);
+            var result = await _listingService.GetSingleListing(id);
+
+            if (result == null) { return NotFound("Listing Not Found"); };
 
             return Ok(result);
         }
@@ -41,7 +43,7 @@ namespace PropertyListingsApi.Controllers
 
         public async Task<ActionResult<List<Listing>>> AddListing(Listing listing)
         {
-            var result = _listingService.AddListing(listing);
+            var result = await _listingService.AddListing(listing);
 
             return Ok(result);
 
@@ -51,7 +53,7 @@ namespace PropertyListingsApi.Controllers
 
         public async Task<ActionResult<List<Listing>>> UpdateListing(int id, Listing listingRequest)
         {
-            var result = _listingService.UpdateListing(id, listingRequest);
+            var result = await _listingService.UpdateListing(id, listingRequest);
 
             if (result is null) return NotFound("Listing not found");
 
@@ -62,7 +64,7 @@ namespace PropertyListingsApi.Controllers
 
         public async Task<ActionResult<List<Listing>>> DeleteListing(int id)
         {
-            var result = _listingService.DeleteListing(id);
+            var result = await _listingService.DeleteListing(id);
 
             if (result is null) return NotFound("Listing not found");
 

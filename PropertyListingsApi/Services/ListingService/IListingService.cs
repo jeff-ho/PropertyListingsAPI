@@ -2,15 +2,15 @@
 {
     public interface IListingService
     {
-        List<Listing> GetAllListings();
+        Task<List<Listing>> GetAllListings();
 
-        Listing? GetSingleListing(int id);
+        Task<Listing?> GetSingleListing(int id);
 
-        List<Listing> AddListing(Listing listing);
+        Task<List<Listing>> AddListing(Listing listing);
 
-        List<Listing>? UpdateListing(int id, Listing listingRequest);
+        Task<List<Listing>?> UpdateListing(int id, Listing listingRequest);
 
-        List<Listing>? DeleteListing(int id);
+       Task<List<Listing>?> DeleteListing(int id);
 
     };
 }
