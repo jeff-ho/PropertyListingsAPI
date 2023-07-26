@@ -40,9 +40,12 @@ namespace PropertyListingsApi.Controllers
 
 
         [HttpPost]
+  
 
-        public async Task<ActionResult<List<Listing>>> AddListing(Listing listing)
+        public async Task<ActionResult<List<Listing>>> AddListing([FromBody] Listing listing)
         {
+            System.Diagnostics.Debug.WriteLine(listing);
+
             var result = await _listingService.AddListing(listing);
 
             return Ok(result);
@@ -61,9 +64,11 @@ namespace PropertyListingsApi.Controllers
         }
 
         [HttpDelete("{id}")]
+       
 
         public async Task<ActionResult<List<Listing>>> DeleteListing(int id)
         {
+            
             var result = await _listingService.DeleteListing(id);
 
             if (result is null) return NotFound("Listing not found");
