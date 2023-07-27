@@ -54,6 +54,7 @@ namespace PropertyListingsApi.Services.ListingService
             if (listing is null) return null;
 
             listing.Title = listingRequest.Title;
+            listing.Size = listingRequest.Size;
             listing.Description = listingRequest.Description;
             listing.AgentName = listingRequest.AgentName;
             listing.Address = listingRequest.Address;

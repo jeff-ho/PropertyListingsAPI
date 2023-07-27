@@ -42,10 +42,9 @@ namespace PropertyListingsApi.Controllers
         [HttpPost]
   
 
-        public async Task<ActionResult<List<Listing>>> AddListing([FromBody] Listing listing)
+        public async Task<ActionResult<List<Listing>>> AddListing(Listing listing)
         {
-            System.Diagnostics.Debug.WriteLine(listing);
-
+            
             var result = await _listingService.AddListing(listing);
 
             return Ok(result);

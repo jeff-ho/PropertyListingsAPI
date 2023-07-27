@@ -6,6 +6,8 @@
 
         public string Title { get; set; } = string.Empty;
 
+        public int Size { get; set; }
+
         public string Description { get; set; }= string.Empty;
 
         public string AgentName { get; set; } = string.Empty;
